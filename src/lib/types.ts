@@ -113,22 +113,20 @@ export interface Prediction {
   createdAt: string;
 }
 
+export type AISource = "lovable" | "gemini";
+
 export interface AISettings {
-  aiSource: "gemini" | "ollama";
+  aiSource: AISource;
   geminiApiKey: string;
   sportsDbApiKey: string;
   apiFootballKey: string;
-  ollamaUrl: string;
-  ollamaModel: string;
 }
 
 export const DEFAULT_SETTINGS: AISettings = {
-  aiSource: "gemini",
+  aiSource: "lovable",
   geminiApiKey: "",
   sportsDbApiKey: "3",
   apiFootballKey: "",
-  ollamaUrl: "http://localhost:11434",
-  ollamaModel: "llama3.2",
 };
 
 export const POPULAR_LEAGUES: { id: string; name: string; country: string }[] = [
