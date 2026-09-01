@@ -79,7 +79,7 @@ Odgovori isključivo u JSON formatu, bez dodatnog teksta:
 function parseResponse(text: string): PredictionResult {
   let jsonStr = text.trim();
   const fenceMatch = jsonStr.match(/```(?:json)?\s*([\s\S]*?)```/);
-  if (fenceMatch) jsonStr = fenceMatch[1].trim();
+  if (fenceMatch?.[1]) jsonStr = fenceMatch[1].trim();
 
   const jsonStart = jsonStr.indexOf("{");
   const jsonEnd = jsonStr.lastIndexOf("}");
@@ -107,8 +107,8 @@ function parseResponse(text: string): PredictionResult {
   const scoreMatch = text.match(/(\d+)\s*[-:]\s*(\d+)/);
   if (scoreMatch) {
     return {
-      homeScore: parseInt(scoreMatch[1], 10),
-      awayScore: parseInt(scoreMatch[2], 10),
+      homeScore: parseInt(scoreMatch[1] ?? "0", 10),
+      awayScore: parseInt(scoreMatch[2] ?? "0", 10),
       reasoning: text.substring(0, 300),
       confidence: 50,
     };
