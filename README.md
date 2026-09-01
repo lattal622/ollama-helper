@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# Ollama Helper
+
+zelim da doeradis ovaj projkt ollama problem Nije moguće spojiti se na Ollama na http://localhost:11434. Provjerite je li Ollama pokrenuta (naredba "ollama serve"). Greška: Unexpected token '<', "<!DOCTYPE "... is not valid JSON,zatim problem ,zatim greska Greška pri predviđanju
+
+Gemini nije vratio odgovor.provjeri moze li se ainstalirti preko crome na poc ili mob
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/a70769c7-fc9e-4757-9f54-c8dc2bc0e464).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
