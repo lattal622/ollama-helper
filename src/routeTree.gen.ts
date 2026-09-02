@@ -10,33 +10,120 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SrcRoutesPretragaRouteImport } from './routes/src/routes/pretraga'
+import { Route as SrcRoutesSrcRoutesPredvidanjaRouteImport } from './routes/src/routes/src/routes/predvidanja'
+import { Route as SrcRoutesSrcRoutesLigaIdRouteImport } from './routes/src/routes/src/routes/liga.$id'
+import { Route as SrcRoutesSrcRoutesMomcadIdRouteImport } from './routes/src/routes/src/routes/momcad.$id'
+import { Route as SrcRoutesSrcRoutesSrcRoutesPostavkeRouteImport } from './routes/src/routes/src/routes/src/routes/postavke'
+import { Route as SrcRoutesSrcRoutesSrcRoutesUtakmicaIdRouteImport } from './routes/src/routes/src/routes/src/routes/utakmica.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SrcRoutesPretragaRoute = SrcRoutesPretragaRouteImport.update({
+  id: '/src/routes/pretraga',
+  path: '/src/routes/pretraga',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SrcRoutesSrcRoutesPredvidanjaRoute =
+  SrcRoutesSrcRoutesPredvidanjaRouteImport.update({
+    id: '/src/routes/src/routes/predvidanja',
+    path: '/src/routes/src/routes/predvidanja',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SrcRoutesSrcRoutesLigaIdRoute =
+  SrcRoutesSrcRoutesLigaIdRouteImport.update({
+    id: '/src/routes/src/routes/liga/$id',
+    path: '/src/routes/src/routes/liga/$id',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SrcRoutesSrcRoutesMomcadIdRoute =
+  SrcRoutesSrcRoutesMomcadIdRouteImport.update({
+    id: '/src/routes/src/routes/momcad/$id',
+    path: '/src/routes/src/routes/momcad/$id',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SrcRoutesSrcRoutesSrcRoutesPostavkeRoute =
+  SrcRoutesSrcRoutesSrcRoutesPostavkeRouteImport.update({
+    id: '/src/routes/src/routes/src/routes/postavke',
+    path: '/src/routes/src/routes/src/routes/postavke',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SrcRoutesSrcRoutesSrcRoutesUtakmicaIdRoute =
+  SrcRoutesSrcRoutesSrcRoutesUtakmicaIdRouteImport.update({
+    id: '/src/routes/src/routes/src/routes/utakmica/$id',
+    path: '/src/routes/src/routes/src/routes/utakmica/$id',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/src/routes/pretraga': typeof SrcRoutesPretragaRoute
+  '/src/routes/src/routes/predvidanja': typeof SrcRoutesSrcRoutesPredvidanjaRoute
+  '/src/routes/src/routes/liga/$id': typeof SrcRoutesSrcRoutesLigaIdRoute
+  '/src/routes/src/routes/momcad/$id': typeof SrcRoutesSrcRoutesMomcadIdRoute
+  '/src/routes/src/routes/src/routes/postavke': typeof SrcRoutesSrcRoutesSrcRoutesPostavkeRoute
+  '/src/routes/src/routes/src/routes/utakmica/$id': typeof SrcRoutesSrcRoutesSrcRoutesUtakmicaIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/src/routes/pretraga': typeof SrcRoutesPretragaRoute
+  '/src/routes/src/routes/predvidanja': typeof SrcRoutesSrcRoutesPredvidanjaRoute
+  '/src/routes/src/routes/liga/$id': typeof SrcRoutesSrcRoutesLigaIdRoute
+  '/src/routes/src/routes/momcad/$id': typeof SrcRoutesSrcRoutesMomcadIdRoute
+  '/src/routes/src/routes/src/routes/postavke': typeof SrcRoutesSrcRoutesSrcRoutesPostavkeRoute
+  '/src/routes/src/routes/src/routes/utakmica/$id': typeof SrcRoutesSrcRoutesSrcRoutesUtakmicaIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/src/routes/pretraga': typeof SrcRoutesPretragaRoute
+  '/src/routes/src/routes/predvidanja': typeof SrcRoutesSrcRoutesPredvidanjaRoute
+  '/src/routes/src/routes/liga/$id': typeof SrcRoutesSrcRoutesLigaIdRoute
+  '/src/routes/src/routes/momcad/$id': typeof SrcRoutesSrcRoutesMomcadIdRoute
+  '/src/routes/src/routes/src/routes/postavke': typeof SrcRoutesSrcRoutesSrcRoutesPostavkeRoute
+  '/src/routes/src/routes/src/routes/utakmica/$id': typeof SrcRoutesSrcRoutesSrcRoutesUtakmicaIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/src/routes/pretraga'
+    | '/src/routes/src/routes/predvidanja'
+    | '/src/routes/src/routes/liga/$id'
+    | '/src/routes/src/routes/momcad/$id'
+    | '/src/routes/src/routes/src/routes/postavke'
+    | '/src/routes/src/routes/src/routes/utakmica/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/src/routes/pretraga'
+    | '/src/routes/src/routes/predvidanja'
+    | '/src/routes/src/routes/liga/$id'
+    | '/src/routes/src/routes/momcad/$id'
+    | '/src/routes/src/routes/src/routes/postavke'
+    | '/src/routes/src/routes/src/routes/utakmica/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/src/routes/pretraga'
+    | '/src/routes/src/routes/predvidanja'
+    | '/src/routes/src/routes/liga/$id'
+    | '/src/routes/src/routes/momcad/$id'
+    | '/src/routes/src/routes/src/routes/postavke'
+    | '/src/routes/src/routes/src/routes/utakmica/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SrcRoutesPretragaRoute: typeof SrcRoutesPretragaRoute
+  SrcRoutesSrcRoutesPredvidanjaRoute: typeof SrcRoutesSrcRoutesPredvidanjaRoute
+  SrcRoutesSrcRoutesLigaIdRoute: typeof SrcRoutesSrcRoutesLigaIdRoute
+  SrcRoutesSrcRoutesMomcadIdRoute: typeof SrcRoutesSrcRoutesMomcadIdRoute
+  SrcRoutesSrcRoutesSrcRoutesPostavkeRoute: typeof SrcRoutesSrcRoutesSrcRoutesPostavkeRoute
+  SrcRoutesSrcRoutesSrcRoutesUtakmicaIdRoute: typeof SrcRoutesSrcRoutesSrcRoutesUtakmicaIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +135,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/src/routes/pretraga': {
+      id: '/src/routes/pretraga'
+      path: '/src/routes/pretraga'
+      fullPath: '/src/routes/pretraga'
+      preLoaderRoute: typeof SrcRoutesPretragaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/src/routes/src/routes/predvidanja': {
+      id: '/src/routes/src/routes/predvidanja'
+      path: '/src/routes/src/routes/predvidanja'
+      fullPath: '/src/routes/src/routes/predvidanja'
+      preLoaderRoute: typeof SrcRoutesSrcRoutesPredvidanjaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/src/routes/src/routes/liga/$id': {
+      id: '/src/routes/src/routes/liga/$id'
+      path: '/src/routes/src/routes/liga/$id'
+      fullPath: '/src/routes/src/routes/liga/$id'
+      preLoaderRoute: typeof SrcRoutesSrcRoutesLigaIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/src/routes/src/routes/momcad/$id': {
+      id: '/src/routes/src/routes/momcad/$id'
+      path: '/src/routes/src/routes/momcad/$id'
+      fullPath: '/src/routes/src/routes/momcad/$id'
+      preLoaderRoute: typeof SrcRoutesSrcRoutesMomcadIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/src/routes/src/routes/src/routes/postavke': {
+      id: '/src/routes/src/routes/src/routes/postavke'
+      path: '/src/routes/src/routes/src/routes/postavke'
+      fullPath: '/src/routes/src/routes/src/routes/postavke'
+      preLoaderRoute: typeof SrcRoutesSrcRoutesSrcRoutesPostavkeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/src/routes/src/routes/src/routes/utakmica/$id': {
+      id: '/src/routes/src/routes/src/routes/utakmica/$id'
+      path: '/src/routes/src/routes/src/routes/utakmica/$id'
+      fullPath: '/src/routes/src/routes/src/routes/utakmica/$id'
+      preLoaderRoute: typeof SrcRoutesSrcRoutesSrcRoutesUtakmicaIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SrcRoutesPretragaRoute: SrcRoutesPretragaRoute,
+  SrcRoutesSrcRoutesPredvidanjaRoute: SrcRoutesSrcRoutesPredvidanjaRoute,
+  SrcRoutesSrcRoutesLigaIdRoute: SrcRoutesSrcRoutesLigaIdRoute,
+  SrcRoutesSrcRoutesMomcadIdRoute: SrcRoutesSrcRoutesMomcadIdRoute,
+  SrcRoutesSrcRoutesSrcRoutesPostavkeRoute:
+    SrcRoutesSrcRoutesSrcRoutesPostavkeRoute,
+  SrcRoutesSrcRoutesSrcRoutesUtakmicaIdRoute:
+    SrcRoutesSrcRoutesSrcRoutesUtakmicaIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
