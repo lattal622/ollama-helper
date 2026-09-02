@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LigaIdRouteImport } from './routes/liga.$id'
+import { Route as MomcadIdRouteImport } from './routes/momcad.$id'
 import { Route as UtakmicaIdRouteImport } from './routes/utakmica.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const LigaIdRoute = LigaIdRouteImport.update({
   path: '/liga/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MomcadIdRoute = MomcadIdRouteImport.update({
+  id: '/momcad/$id',
+  path: '/momcad/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UtakmicaIdRoute = UtakmicaIdRouteImport.update({
   id: '/utakmica/$id',
   path: '/utakmica/$id',
@@ -32,30 +38,34 @@ const UtakmicaIdRoute = UtakmicaIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/liga/$id': typeof LigaIdRoute
+  '/momcad/$id': typeof MomcadIdRoute
   '/utakmica/$id': typeof UtakmicaIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/liga/$id': typeof LigaIdRoute
+  '/momcad/$id': typeof MomcadIdRoute
   '/utakmica/$id': typeof UtakmicaIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/liga/$id': typeof LigaIdRoute
+  '/momcad/$id': typeof MomcadIdRoute
   '/utakmica/$id': typeof UtakmicaIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/liga/$id' | '/utakmica/$id'
+  fullPaths: '/' | '/liga/$id' | '/momcad/$id' | '/utakmica/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/liga/$id' | '/utakmica/$id'
-  id: '__root__' | '/' | '/liga/$id' | '/utakmica/$id'
+  to: '/' | '/liga/$id' | '/momcad/$id' | '/utakmica/$id'
+  id: '__root__' | '/' | '/liga/$id' | '/momcad/$id' | '/utakmica/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LigaIdRoute: typeof LigaIdRoute
+  MomcadIdRoute: typeof MomcadIdRoute
   UtakmicaIdRoute: typeof UtakmicaIdRoute
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LigaIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/momcad/$id': {
+      id: '/momcad/$id'
+      path: '/momcad/$id'
+      fullPath: '/momcad/$id'
+      preLoaderRoute: typeof MomcadIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/utakmica/$id': {
       id: '/utakmica/$id'
       path: '/utakmica/$id'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LigaIdRoute: LigaIdRoute,
+  MomcadIdRoute: MomcadIdRoute,
   UtakmicaIdRoute: UtakmicaIdRoute,
 }
 export const routeTree = rootRouteImport
