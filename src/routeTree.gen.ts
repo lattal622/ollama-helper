@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LigaIdRouteImport } from './routes/liga.$id'
+import { Route as UtakmicaIdRouteImport } from './routes/utakmica.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const LigaIdRoute = LigaIdRouteImport.update({
   path: '/liga/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UtakmicaIdRoute = UtakmicaIdRouteImport.update({
+  id: '/utakmica/$id',
+  path: '/utakmica/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/liga/$id': typeof LigaIdRoute
+  '/utakmica/$id': typeof UtakmicaIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/liga/$id': typeof LigaIdRoute
+  '/utakmica/$id': typeof UtakmicaIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/liga/$id': typeof LigaIdRoute
+  '/utakmica/$id': typeof UtakmicaIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/liga/$id'
+  fullPaths: '/' | '/liga/$id' | '/utakmica/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/liga/$id'
-  id: '__root__' | '/' | '/liga/$id'
+  to: '/' | '/liga/$id' | '/utakmica/$id'
+  id: '__root__' | '/' | '/liga/$id' | '/utakmica/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LigaIdRoute: typeof LigaIdRoute
+  UtakmicaIdRoute: typeof UtakmicaIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LigaIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/utakmica/$id': {
+      id: '/utakmica/$id'
+      path: '/utakmica/$id'
+      fullPath: '/utakmica/$id'
+      preLoaderRoute: typeof UtakmicaIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LigaIdRoute: LigaIdRoute,
+  UtakmicaIdRoute: UtakmicaIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
