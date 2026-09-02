@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PredvidanjaRouteImport } from './routes/predvidanja'
 import { Route as PretragaRouteImport } from './routes/pretraga'
 import { Route as LigaIdRouteImport } from './routes/liga.$id'
 import { Route as MomcadIdRouteImport } from './routes/momcad.$id'
@@ -18,6 +19,11 @@ import { Route as UtakmicaIdRouteImport } from './routes/utakmica.$id'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PredvidanjaRoute = PredvidanjaRouteImport.update({
+  id: '/predvidanja',
+  path: '/predvidanja',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PretragaRoute = PretragaRouteImport.update({
@@ -43,6 +49,7 @@ const UtakmicaIdRoute = UtakmicaIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/predvidanja': typeof PredvidanjaRoute
   '/pretraga': typeof PretragaRoute
   '/liga/$id': typeof LigaIdRoute
   '/momcad/$id': typeof MomcadIdRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/predvidanja': typeof PredvidanjaRoute
   '/pretraga': typeof PretragaRoute
   '/liga/$id': typeof LigaIdRoute
   '/momcad/$id': typeof MomcadIdRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/predvidanja': typeof PredvidanjaRoute
   '/pretraga': typeof PretragaRoute
   '/liga/$id': typeof LigaIdRoute
   '/momcad/$id': typeof MomcadIdRoute
@@ -65,12 +74,25 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pretraga' | '/liga/$id' | '/momcad/$id' | '/utakmica/$id'
+  fullPaths:
+    | '/'
+    | '/predvidanja'
+    | '/pretraga'
+    | '/liga/$id'
+    | '/momcad/$id'
+    | '/utakmica/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pretraga' | '/liga/$id' | '/momcad/$id' | '/utakmica/$id'
+  to:
+    | '/'
+    | '/predvidanja'
+    | '/pretraga'
+    | '/liga/$id'
+    | '/momcad/$id'
+    | '/utakmica/$id'
   id:
     | '__root__'
     | '/'
+    | '/predvidanja'
     | '/pretraga'
     | '/liga/$id'
     | '/momcad/$id'
@@ -79,6 +101,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PredvidanjaRoute: typeof PredvidanjaRoute
   PretragaRoute: typeof PretragaRoute
   LigaIdRoute: typeof LigaIdRoute
   MomcadIdRoute: typeof MomcadIdRoute
@@ -92,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/predvidanja': {
+      id: '/predvidanja'
+      path: '/predvidanja'
+      fullPath: '/predvidanja'
+      preLoaderRoute: typeof PredvidanjaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pretraga': {
@@ -127,6 +157,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PredvidanjaRoute: PredvidanjaRoute,
   PretragaRoute: PretragaRoute,
   LigaIdRoute: LigaIdRoute,
   MomcadIdRoute: MomcadIdRoute,
